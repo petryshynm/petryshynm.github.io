@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  flex-direction: column;
+  row-gap: 50px;
+}
+
+.container {
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 40px;
+  column-gap: 40px;
+}
+
+a {
+  width: 30%;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 34px;
+  transition: all 0.7s ease;
+  text-align: center;
+}
+
+.dreamshare:hover {
+  color: red;
+}
+
+.uber:hover {
+  color: rgb(0, 212, 212);
+}
+
+.editor:hover {
+  color: rgb(127, 20, 214);
+}
+
+.streamings:hover {
+  color: rgb(21, 255, 0);
+}
+
+.suffix:hover {
+  color: rgb(224, 52, 95);
+}
+
+.team-management:hover {
+  color: rgb(25, 0, 255);
+}
+
+@media screen and (max-width: 860px) {
+  a {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  a {
+    width: 100%;
+  }
+}

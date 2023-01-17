@@ -1,0 +1,14 @@
+@mixin centration($display, $just, $align) {
+    display: $display;
+    justify-content: $just;
+    align-items: $align;
+}
+
+@mixin box-config($br, $brd, $w, $h, $clr, $bc){
+    border-radius: $br;
+    border: $brd;
+    width: $w;
+    height: $h;
+    color: $clr;
+    background-color: $bc;
+}

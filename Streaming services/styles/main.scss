@@ -1,0 +1,199 @@
+@import 'base/_reset.scss';
+@import 'base/_variables.scss';
+@import 'base/_mixins.scss';
+
+
+body{
+    padding-top: 200px;
+    background-color: $bodybackground;
+}
+
+.container{
+    @include box(100%, 400px, $containerbackground);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+
+
+    .block {
+        border: 1px solid $containerbackground;
+        overflow: hidden;
+        height: 100%;
+        width: 200px;
+        position: relative;
+        transition: width 0.7s;
+        &-icon{
+            position: relative;
+            left: 0;
+            top: 0;
+            display: flex;
+            transition: left 0.2s;
+            width: 400px;
+            &-lower {
+                @include box(200px, 400px, $blockbackground);
+                background: {
+                    position: center;
+                    size: 30%;
+                    repeat: no-repeat;
+                }
+            }
+            &-upper{
+                width: 200px;
+                height: 400px;
+            }
+            &-upper::after{
+                background-size: 50%;
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 200px;
+                @extend .block-icon-lower;
+                background-color: rgba(0, 0, 0, 0);
+            }
+        }
+        &-info{
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            transition: left 0.5s;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            align-content: space-between;
+            justify-content: center;
+            h1{
+                font: {
+                    weight: 400;
+                    size: 50px
+                }
+            }
+            h2{
+                font: {
+                    weight: 100;
+                    size: 30px
+                }
+            }
+            @include box(600px, 400px,  white);
+            position: absolute;
+            top: 0;
+            left: 200px;
+            width: 600px;
+        }
+
+        &:hover{
+            cursor: pointer;
+            width: 1200px;
+        }
+        &:hover .block-icon {
+            left: -200px;
+        }
+    }
+    
+     
+}
+
+.block:nth-child(1){
+    .block-icon-lower {
+        background-image: url(../images/twitter.svg);
+    }
+    .block-icon-upper{
+        background-color: #6fd2f9;
+    }
+    .block-icon-upper::after{
+        background-image: url(../images/twitter.svg);
+     
+    }
+}
+
+.block:nth-child(2) {
+    
+    .block-icon-lower {
+        background-image: url(../images/facebook.svg);
+    }
+    .block-icon-upper {
+        background: linear-gradient(180deg, rgb(77, 134, 191), rgb(47, 103, 168));
+    }
+    .block-icon-upper::after {
+        background-image: url(../images/twitter.svg);
+        
+    }
+}
+
+.block:nth-child(3) {
+
+    .block-icon-lower {
+        background-image: url(../images/linkedin.svg);
+    }
+
+    .block-icon-upper {
+        background: linear-gradient(180deg, rgb(0, 153, 206), rgb(0, 130, 188));
+    }
+
+    .block-icon-upper::after {
+        background-image: url(../images/linkedin.svg);
+        
+    }
+}
+
+.block:nth-child(4) {
+
+    .block-icon-lower {
+        background-image: url(../images/instagram.svg);
+    }
+
+    .block-icon-upper {
+        background: linear-gradient(180deg, rgb(120, 175, 28), rgb(88, 127, 45));
+    }
+
+    .block-icon-upper::after {
+        background-image: url(../images/instagram.svg);
+        
+    }
+}
+
+.block:nth-child(5) {
+
+    .block-icon-lower {
+        background-image: url(../images/youtube.svg);
+    }
+
+    .block-icon-upper {
+        background: linear-gradient(180deg, rgb(236, 45, 39), rgb(215, 39, 31));
+    }
+
+    .block-icon-upper::after {
+        background-image: url(../images/youtube.svg);
+        
+    }
+}
+
+.block:nth-child(6) {
+
+    .block-icon-lower {
+        background-image: url(../images/tumblr.svg);
+    }
+
+    .block-icon-upper {
+        background: linear-gradient(180deg, rgb(38, 62, 82), rgb(42, 76, 105));
+    }
+
+    .block-icon-upper::after {
+        background-image: url(../images/tumblr.svg);
+        
+    }
+}
+
+.block:nth-child(7) {
+
+    .block-icon-lower {
+        background-image: url(../images/dribbble.svg);
+    }
+
+    .block-icon-upper {
+        background: linear-gradient(180deg, rgb(234, 79, 112), rgb(245, 131, 162));
+    }
+
+    .block-icon-upper::after {
+        background-image: url(../images/dribbble.svg);
+        
+    }
+}

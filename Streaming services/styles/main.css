@@ -1,0 +1,289 @@
+@charset "UTF-8";
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* article>*+*{
+    margin-top: 0;
+} */
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 15px;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  padding-top: 200px;
+  background-color: #ff7f5d;
+}
+
+.container {
+  width: 100%;
+  height: 400px;
+  background-color: #52aaca;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.container .block {
+  border: 1px solid #52aaca;
+  overflow: hidden;
+  height: 100%;
+  width: 200px;
+  position: relative;
+  -webkit-transition: width 0.7s;
+  transition: width 0.7s;
+}
+
+.container .block-icon {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: left 0.2s;
+  transition: left 0.2s;
+  width: 400px;
+}
+
+.container .block-icon-lower, .container .block-icon-upper::after {
+  width: 200px;
+  height: 400px;
+  background-color: #66bede;
+  background-position: center;
+  background-size: 30%;
+  background-repeat: no-repeat;
+}
+
+.container .block-icon-upper {
+  width: 200px;
+  height: 400px;
+}
+
+.container .block-icon-upper::after {
+  background-size: 50%;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 200px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.container .block-info {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  -webkit-transition: left 0.5s;
+  transition: left 0.5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 600px;
+  height: 400px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 200px;
+  width: 600px;
+}
+
+.container .block-info h1 {
+  font-weight: 400;
+  font-size: 50px;
+}
+
+.container .block-info h2 {
+  font-weight: 100;
+  font-size: 30px;
+}
+
+.container .block:hover {
+  cursor: pointer;
+  width: 1200px;
+}
+
+.container .block:hover .block-icon {
+  left: -200px;
+}
+
+.block:nth-child(1) .block-icon-lower, .block:nth-child(1) .container .block-icon-upper::after, .container .block:nth-child(1) .block-icon-upper::after {
+  background-image: url(../images/twitter.svg);
+}
+
+.block:nth-child(1) .block-icon-upper {
+  background-color: #6fd2f9;
+}
+
+.block:nth-child(1) .block-icon-upper::after {
+  background-image: url(../images/twitter.svg);
+}
+
+.block:nth-child(2) .block-icon-lower, .block:nth-child(2) .container .block-icon-upper::after, .container .block:nth-child(2) .block-icon-upper::after {
+  background-image: url(../images/facebook.svg);
+}
+
+.block:nth-child(2) .block-icon-upper {
+  background: -webkit-gradient(linear, left top, left bottom, from(#4d86bf), to(#2f67a8));
+  background: linear-gradient(180deg, #4d86bf, #2f67a8);
+}
+
+.block:nth-child(2) .block-icon-upper::after {
+  background-image: url(../images/twitter.svg);
+}
+
+.block:nth-child(3) .block-icon-lower, .block:nth-child(3) .container .block-icon-upper::after, .container .block:nth-child(3) .block-icon-upper::after {
+  background-image: url(../images/linkedin.svg);
+}
+
+.block:nth-child(3) .block-icon-upper {
+  background: -webkit-gradient(linear, left top, left bottom, from(#0099ce), to(#0082bc));
+  background: linear-gradient(180deg, #0099ce, #0082bc);
+}
+
+.block:nth-child(3) .block-icon-upper::after {
+  background-image: url(../images/linkedin.svg);
+}
+
+.block:nth-child(4) .block-icon-lower, .block:nth-child(4) .container .block-icon-upper::after, .container .block:nth-child(4) .block-icon-upper::after {
+  background-image: url(../images/instagram.svg);
+}
+
+.block:nth-child(4) .block-icon-upper {
+  background: -webkit-gradient(linear, left top, left bottom, from(#78af1c), to(#587f2d));
+  background: linear-gradient(180deg, #78af1c, #587f2d);
+}
+
+.block:nth-child(4) .block-icon-upper::after {
+  background-image: url(../images/instagram.svg);
+}
+
+.block:nth-child(5) .block-icon-lower, .block:nth-child(5) .container .block-icon-upper::after, .container .block:nth-child(5) .block-icon-upper::after {
+  background-image: url(../images/youtube.svg);
+}
+
+.block:nth-child(5) .block-icon-upper {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ec2d27), to(#d7271f));
+  background: linear-gradient(180deg, #ec2d27, #d7271f);
+}
+
+.block:nth-child(5) .block-icon-upper::after {
+  background-image: url(../images/youtube.svg);
+}
+
+.block:nth-child(6) .block-icon-lower, .block:nth-child(6) .container .block-icon-upper::after, .container .block:nth-child(6) .block-icon-upper::after {
+  background-image: url(../images/tumblr.svg);
+}
+
+.block:nth-child(6) .block-icon-upper {
+  background: -webkit-gradient(linear, left top, left bottom, from(#263e52), to(#2a4c69));
+  background: linear-gradient(180deg, #263e52, #2a4c69);
+}
+
+.block:nth-child(6) .block-icon-upper::after {
+  background-image: url(../images/tumblr.svg);
+}
+
+.block:nth-child(7) .block-icon-lower, .block:nth-child(7) .container .block-icon-upper::after, .container .block:nth-child(7) .block-icon-upper::after {
+  background-image: url(../images/dribbble.svg);
+}
+
+.block:nth-child(7) .block-icon-upper {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ea4f70), to(#f583a2));
+  background: linear-gradient(180deg, #ea4f70, #f583a2);
+}
+
+.block:nth-child(7) .block-icon-upper::after {
+  background-image: url(../images/dribbble.svg);
+}
+/*# sourceMappingURL=main.css.map */
